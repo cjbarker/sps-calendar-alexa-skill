@@ -1,0 +1,22 @@
+SpsCalIntent {Date}
+SpsCalIntent status
+SpsCalIntent is there school this {Date}
+SpsCalIntent is there school {Date}
+SpsCalIntent is school {Date}
+SpsCalIntent do I have school
+SpsCalIntent do I have school {Date}
+SpsCalIntent do I have school on {Date}
+SpsCalIntent is there school on {Date}
+SpsCalIntent is there school {Date}
+SpsCalIntent is {Date} a school day
+SpsCalIntent is {Date} a school holiday
+SpsCalIntent when is a school holiday
+SpsCalIntent when is the next school holiday
+SpsCalIntent when is the next holiday
+SpsCalIntent when is there a day off school
+SpsCalIntent when is school over
+SpsCalIntent when does school end
+SpsCalIntent is school out of session
+SpsCalIntent when does school start
+SpsCalIntent when does school begin
+SpsCalIntent is school in session
