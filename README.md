@@ -4,9 +4,9 @@
 
 - [sps-calendar-alexa-skill](#sps-calendar-alexa-skill)
 - [Developer](#developer)
-- [Build](#build)
-- [Test](#test)
-- [Deploy](#deploy)
+  - [Build](#build)
+  - [Test](#test)
+  - [Deploy](#deploy)
 - [References](#references)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -15,16 +15,26 @@
 Seattle Public School (SPS) Alexa Skill denoting if school is in session or not for a given day,.
 
 # Developer
+Prerequiste: [Node.js](https://nodejs.org/en/download/) installed and [Alexa SDK](https://github.com/alexa/alexa-skills-kit-sdk-for-nodejs) for Node.js installed.
+
+```sh
+# Clone Repo
+git clone git@github.com:cjbarker/sps-calendar-alexa-skill.git
+cd sps-calendar-alexa-skill
+
+# Install Alexa SDK
+npm install --save alexa-sdk
+```
+## Build 
 TBD
 
-# Build 
+## Test
 TBD
 
-# Test
-TBD
-
-# Deploy
+## Deploy
 TBD
 
 # References
-TBD
+* [Alexa SDK for Node.js](https://github.com/alexa/alexa-skills-kit-sdk-for-nodejs)
+* [Alexa Custom Skills Tutorial]()
+* [Seattle Public Schools Calendars](https://www.seattleschools.org/district/calendars)
