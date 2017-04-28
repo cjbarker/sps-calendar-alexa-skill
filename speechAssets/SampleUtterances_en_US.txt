@@ -1,7 +1,9 @@
 SpsCalIntent {Date}
+SpsCalIntent for {Date}
 SpsCalIntent status
 SpsCalIntent the school status for {$Date}
 SpsCalIntent is school in session 
+SpsCalIntent is there school on {$Date}
 SpsCalIntent is school in session on {$Date}
 SpsCalIntent is school in session for {$Date}
 SpsCalIntent give me the school status for ${Date}
@@ -26,3 +28,5 @@ SpsCalIntent is school out of session
 SpsCalIntent when does school start
 SpsCalIntent when does school begin
 SpsCalIntent is school in session
+
+AMAZON.HelpIntent Ask SPS if school is in session today
