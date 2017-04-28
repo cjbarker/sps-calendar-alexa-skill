@@ -1,27 +1,20 @@
 {
   "name": "sps-calendar",
-  "version": "0.0.5",
-  "description": "Seattle Publich Schools (SPS) Calendars skills look-up",
+  "version": "0.0.2",
+  "description": "A simple calendar reading skill.",
+  "description": "Seattle Publich Schools (SPS) calendar reading skill",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/cjbarker/sps-calendar-alexa-skill.git"
-  },
   "keywords": [
-    "Alexa",
+    "alexa",
     "skill",
-    "howto"
+    "fact"
   ],
-  "author": "Amazon.com",
+  "author": "CJ Barker",
   "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/cjbarker/sps-calendar-alexa-skill/issues"
-  },
-  "homepage": "https://github.com/cjbarker/sps-calendar-alexa-skill#readme",
   "dependencies": {
-    "alexa-sdk": "^1.0.6"
+    "alexa-sdk": "^1.0.0"
   }
 }
