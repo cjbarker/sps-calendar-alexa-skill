@@ -27,6 +27,12 @@ SpsCalIntent when does school end
 SpsCalIntent is school out of session
 SpsCalIntent when does school start
 SpsCalIntent when does school begin
+SpsCalIntent when is the next day off 
+SpsCalIntent when is the next day off school
+SpsCalIntent next day off
+SpsCalIntent when is the next early dismissal
+SpsCalIntent when is the next early dismissal from school
+SpsCalIntent next early dismissal
 SpsCalIntent is school in session
 
 AMAZON.HelpIntent Ask SPS if school is in session today
