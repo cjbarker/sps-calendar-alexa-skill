@@ -18,8 +18,8 @@
  */
 
 var Alexa = require('alexa-sdk');
-#var http = require('http');
-#var calDates = require("./cal-dates");
+//var http = require('http');
+//var calDates = require("./cal-dates");
 
 // global variables for reference
 var alexa;  // alexa SDK 
@@ -34,7 +34,7 @@ var noDataMsg = "There is no information found for that date. Would you like to 
 var shutdownMsg = "Okay see you later";
 
 // Output for Alexa
-var output = "":
+var output = "";
 
 // TODO create handler functions
 
@@ -60,7 +60,7 @@ function iso2key(isoDate) {
   }
 
   var date = new Date(isoDate);
-  if (isNaN(date) {
+  if (isNaN(date)){
     return key;
   }
 
@@ -88,7 +88,7 @@ function getToday() {
  * @return {Object} date object represented 
  */
 function iso2obj(isoDate) {
-  if (isEmpty(isoDate) {
+  if (isEmpty(isoDate)) {
     return undefined;
   }
 
@@ -99,7 +99,7 @@ function iso2obj(isoDate) {
     day: fd,
     date: 23,
     month: kj,
-    year: kj,
+    year: kj
   };
 
   return dateObj;
