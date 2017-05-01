@@ -83,6 +83,30 @@ function getToday() {
   return today;
 }
 
+/**
+ * Converts a date.getDay() array index to String of the day
+ * @param {Number} 0-6 of getDay() index 
+ * @return {string} represents day of the week
+ */
+function getDayStr(dayIndex) {
+  if (dayIndex < 0 || dayIndex > 6) {
+    return '';
+  }
+  if (isNaN(dayIndex)) {
+    return '';
+  }
+  switch (dayIndex) {
+    case 0: return 'Sunday';
+    case 1: return 'Monday';
+    case 2: return 'Tuesday';
+    case 3: return 'Wednesday';
+    case 4: return 'Thursday';
+    case 5: return 'Friday';
+    case 6: return 'Saturday';
+    default: return '';
+  }
+}
+
 /** 
  * Converts an ISO date to date object for easy string conversation
  * @return {Object} date object represented 
@@ -98,8 +122,8 @@ function iso2obj(isoDate) {
   var dateObj = {
     day: fd,
     date: 23,
-    month: kj,
-    year: kj
+    month: d.get,
+    year: d.getFullYear()
   };
 
   return dateObj;
