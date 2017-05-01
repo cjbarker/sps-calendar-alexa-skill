@@ -1,3 +1,22 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
 var Alexa = require('alexa-sdk');
 #var http = require('http');
 #var calDates = require("./cal-dates");
@@ -19,12 +38,20 @@ var output = "":
 
 // TODO create handler functions
 
-// Checks if string is empty, null, undefined or blank
+/**
+ * Denotes if given string is empty, null, undefined, or blank
+ * @param {string} str
+ * @returns {Boolean} denoting if empty or not
+ */
 function isEmpty(str) {
   return (!str || 0 === str.length || /^\s*$/.test(str));
 }
 
-// Converts ISO to CCYYMMDD, which is calendar event key in hashmap
+/** 
+ * Converts ISO to CCYYMMDD, which is used as calendar event key in hashmap.
+ * @param {Date} isoDate
+ * @return {string} CCYYMMDD is converted ISO string
+ */
 function iso2key(isoDate) {
   var key = '';
 
@@ -41,7 +68,10 @@ function iso2key(isoDate) {
   return key;
 }
 
-// Gets the current date and returns object of {iso: string date, key: iso hashmap key}
+/** 
+ * Gets the current date and returns object of today
+ * @return {Object} today that is {iso: string date, key: iso hashmapkey}
+ */
 function getToday() {
   var isoDate = new Date().toISOString();
 
@@ -53,7 +83,10 @@ function getToday() {
   return today;
 }
 
-// Converts an ISO date to date object for 
+/** 
+ * Converts an ISO date to date object for easy string conversation
+ * @return {Object} date object represented 
+ */
 function iso2obj(isoDate) {
   if (isEmpty(isoDate) {
     return undefined;
@@ -61,16 +94,22 @@ function iso2obj(isoDate) {
 
   var d = new Date(isoDate);
 
-  var obj = {
+  // @todo implement
+  var dateObj = {
     day: fd,
     date: 23,
     month: kj,
     year: kj,
   };
 
-  return obj
+  return dateObj;
 }
 
+/**
+ * Determines the ordinal for a given number
+ * @param {Number} number to check ordinal for
+ * @return {string} ordinal ex: st, nd, rd, or th
+ */
 function getOrdinal(num) {
   if (isNaN(num)) {
     return '';
@@ -90,6 +129,11 @@ function getOrdinal(num) {
   }
 }
 
+/**
+ * Converts the iso date object to a string
+ * @param {Object} iso date object
+ * @return {string} Flatten object in string representation - ex: Tuesday the 12th of May 2017
+ */
 function isoObj2String(isoObj) {
   if (isoObj === undefined) {
     return '';
