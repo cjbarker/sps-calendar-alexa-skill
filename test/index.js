@@ -5,6 +5,7 @@ var sps = rewire('../index.js');
 
 isEmpty = sps.__get__('isEmpty');
 getOrdinal = sps.__get__('getOrdinal');
+iso2key = sps.__get__('iso2key');
 
 describe ("SPS ALexa SKill Unit Tests", function () {
   describe("String empty utility check", function() {
@@ -33,5 +34,15 @@ describe ("SPS ALexa SKill Unit Tests", function () {
     expect(getOrdinal(th)).to.equal('th');
     expect(getOrdinal(zero)).to.equal('th');
     expect(getOrdinal(nan)).to.equal('');
+  });
+
+  describe("Convert date to ISO key for hashmap", function() {
+    var isoDate = '2017-05-01T20:07:54.064Z';
+    var emptyDate = '';
+    var badDate = '2017-05-A1T20:07:54.064Z';
+
+    expect(iso2key(isoDate)).to.equal('20170501');
+    expect(iso2key(emptyDate)).to.equal('');
+    expect(iso2key(badDate)).to.equal('');
   });
 });
