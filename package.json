@@ -5,6 +5,7 @@
   "description": "Seattle Publich Schools (SPS) calendar reading skill",
   "main": "index.js",
   "scripts": {
+    "pretest": "./node_modules/jshint/bin/jshint *.js; ./node_modules/jshint/bin/jshint ./test/*.js",
     "test": "./node_modules/mocha/bin/mocha"
   },
   "keywords": [
