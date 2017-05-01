@@ -4,8 +4,6 @@
 
 - [sps-calendar-alexa-skill](#sps-calendar-alexa-skill)
 - [Developer](#developer)
-  - [Build](#build)
-  - [Test](#test)
   - [Deploy](#deploy)
 - [References](#references)
 
@@ -33,11 +31,6 @@ npm test
 jshint index.js
 
 ```
-## Build 
-TBD
-
-## Test
-TBD
 
 ## Deploy
 TBD
