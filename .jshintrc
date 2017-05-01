@@ -1,0 +1,7 @@
+{
+    // JSHint Configuration File
+    // See http://jshint.com/docs/ for more details
+
+    "strict"    : false,
+    "node"      : true
+}
