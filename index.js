@@ -23,7 +23,7 @@
 
 // global variables for reference
 var alexa;  // alexa SDK 
-var APP_ID = undefined;
+var APP_ID = "";    // @todo set
 var skillName = "Seattle Public Schools Calendar";
 
 // Various messages based on intents/events
