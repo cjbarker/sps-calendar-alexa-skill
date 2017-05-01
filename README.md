@@ -26,8 +26,12 @@ cd sps-calendar-alexa-skill
 npm install 
 
 # Run Tests
+npm test
 
 # Run JSHint
+#jshint <javascript-file>
+jshint index.js
+
 ```
 ## Build 
 TBD
