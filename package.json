@@ -16,5 +16,9 @@
   "license": "Apache-2.0",
   "dependencies": {
     "alexa-sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "mocha": "3.2.0",
+    "jshint": "2.9.4"
   }
 }
