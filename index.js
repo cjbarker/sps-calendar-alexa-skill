@@ -17,7 +17,7 @@
  * under the License.
  */
 
-var Alexa = require('alexa-sdk');
+//var Alexa = require('alexa-sdk');
 //var http = require('http');
 //var calDates = require("./cal-dates");
 
