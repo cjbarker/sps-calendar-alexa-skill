@@ -22,8 +22,12 @@ Prerequiste: [Node.js](https://nodejs.org/en/download/) installed and [Alexa SDK
 git clone git@github.com:cjbarker/sps-calendar-alexa-skill.git
 cd sps-calendar-alexa-skill
 
-# Install Alexa SDK
-npm install --save alexa-sdk
+# Install Node Dependencies
+npm install 
+
+# Run Tests
+
+# Run JSHint
 ```
 ## Build 
 TBD
