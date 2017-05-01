@@ -6,12 +6,13 @@ var sps = rewire('../index.js');
 isEmpty = sps.__get__('isEmpty');
 getOrdinal = sps.__get__('getOrdinal');
 iso2key = sps.__get__('iso2key');
+getToday = sps.__get__('getToday');
 
 describe ("SPS ALexa SKill Unit Tests", function () {
   describe("String empty utility check", function() {
       var empty = "";
       var blank = "         ";
-      var undef = undefined;
+      var undef;
       var full = " testing  if   full string  ";
 
       expect(isEmpty(empty)).to.equal(true);
@@ -44,5 +45,13 @@ describe ("SPS ALexa SKill Unit Tests", function () {
     expect(iso2key(isoDate)).to.equal('20170501');
     expect(iso2key(emptyDate)).to.equal('');
     expect(iso2key(badDate)).to.equal('');
+  });
+
+  describe("Get today object", function() {
+    var today = getToday();
+    expect(today.hasOwnProperty('iso')).to.equal(true);
+    expect(today.hasOwnProperty('key')).to.equal(true);
+    expect(today.iso).to.contain('T');  // timezone offset
+    expect(today.iso).to.contain('Z');  // zulu time
   });
 });
