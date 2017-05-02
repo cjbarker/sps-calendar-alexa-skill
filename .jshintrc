@@ -2,6 +2,7 @@
     // JSHint Configuration File
     // See http://jshint.com/docs/ for more details
 
+    "esversion" : 6,
     "strict"    : false,
     "node"      : true
 }
