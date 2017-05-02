@@ -147,7 +147,6 @@ function iso2obj(isoDate) {
 
   var d = new Date(isoDate);
 
-  // @todo implement
   var dateObj = {
     day: getDayStr(d.getDay()),
     date: d.getDate(),

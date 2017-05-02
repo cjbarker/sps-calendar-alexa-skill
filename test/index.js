@@ -5,10 +5,11 @@ var sps = rewire('../index.js');
 
 isEmpty = sps.__get__('isEmpty');
 getOrdinal = sps.__get__('getOrdinal');
-iso2key = sps.__get__('iso2key');
-getToday = sps.__get__('getToday');
 getDayStr = sps.__get__('getDayStr');
 getMonthStr = sps.__get__('getMonthStr');
+getToday = sps.__get__('getToday');
+iso2key = sps.__get__('iso2key');
+iso2obj = sps.__get__('iso2obj');
 
 describe ("SPS ALexa SKill Unit Tests", function () {
   describe("String empty utility check", function() {
@@ -47,14 +48,6 @@ describe ("SPS ALexa SKill Unit Tests", function () {
     expect(iso2key(isoDate)).to.equal('20170501');
     expect(iso2key(emptyDate)).to.equal('');
     expect(iso2key(badDate)).to.equal('');
-  });
-
-  describe("Get today object", function() {
-    var today = getToday();
-    expect(today.hasOwnProperty('iso')).to.equal(true);
-    expect(today.hasOwnProperty('key')).to.equal(true);
-    expect(today.iso).to.contain('T');  // timezone offset
-    expect(today.iso).to.contain('Z');  // zulu time
   });
 
   describe("Get day of week index", function() {
@@ -102,5 +95,26 @@ describe ("SPS ALexa SKill Unit Tests", function () {
     expect(getMonthStr(bad)).to.equal('');
     expect(getMonthStr(bad2)).to.equal('');
     expect(getMonthStr(bad3)).to.equal('');
+  });
+
+  describe("Get today object", function() {
+    var today = getToday();
+    expect(today.hasOwnProperty('iso')).to.equal(true);
+    expect(today.hasOwnProperty('key')).to.equal(true);
+    expect(today.iso).to.contain('T');  // timezone offset
+    expect(today.iso).to.contain('Z');  // zulu time
+  });
+
+  describe("Convert ISO date to date object", function() {
+    var isoDate = '2017-05-02T20:07:54.064Z';
+    var obj = iso2obj(isoDate);
+    expect(obj.hasOwnProperty('day')).to.equal(true);
+    expect(obj.hasOwnProperty('date')).to.equal(true);
+    expect(obj.hasOwnProperty('month')).to.equal(true);
+    expect(obj.hasOwnProperty('year')).to.equal(true);
+    expect(obj.day).to.equal('Tuesday');
+    expect(obj.date).to.equal(2);
+    expect(obj.month).to.equal('May');
+    expect(obj.year).to.equal(2017);
   });
 });
