@@ -8,6 +8,7 @@ getOrdinal = sps.__get__('getOrdinal');
 iso2key = sps.__get__('iso2key');
 getToday = sps.__get__('getToday');
 getDayStr = sps.__get__('getDayStr');
+getMonthStr = sps.__get__('getMonthStr');
 
 describe ("SPS ALexa SKill Unit Tests", function () {
   describe("String empty utility check", function() {
@@ -71,5 +72,35 @@ describe ("SPS ALexa SKill Unit Tests", function () {
     expect(getDayStr(bad)).to.equal('');
     expect(getDayStr(bad2)).to.equal('');
     expect(getDayStr(bad3)).to.equal('');
+  });
+
+  describe("Get day of week index", function() {
+    var sun = 0; var mon = 1; var tue = 2;
+    var wed = 3; var thur = 4; var fri = 5; var sat = 6;
+    var bad = 7; var bad2 = -123; var bad3 = "asdlkj ";
+
+    expect(getDayStr(sun)).to.equal('Sunday');
+    expect(getDayStr(mon)).to.equal('Monday');
+    expect(getDayStr(tue)).to.equal('Tuesday');
+    expect(getDayStr(wed)).to.equal('Wednesday');
+    expect(getDayStr(thur)).to.equal('Thursday');
+    expect(getDayStr(fri)).to.equal('Friday');
+    expect(getDayStr(sat)).to.equal('Saturday');
+    expect(getDayStr(bad)).to.equal('');
+    expect(getDayStr(bad2)).to.equal('');
+    expect(getDayStr(bad3)).to.equal('');
+  });
+
+  describe("Get month canonical", function() {
+    var jan= 0; var mar= 2; var nov = 10; var dec= 11;
+    var bad = 12; var bad2 = -123; var bad3 = "asdlkj ";
+
+    expect(getMonthStr(jan)).to.equal('January');
+    expect(getMonthStr(mar)).to.equal('March');
+    expect(getMonthStr(nov)).to.equal('November');
+    expect(getMonthStr(dec)).to.equal('December');
+    expect(getMonthStr(bad)).to.equal('');
+    expect(getMonthStr(bad2)).to.equal('');
+    expect(getMonthStr(bad3)).to.equal('');
   });
 });

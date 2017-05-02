@@ -107,6 +107,35 @@ function getDayStr(dayIndex) {
   }
 }
 
+/**
+ * Converts a date.getMonth() array index to String of the month
+ * @param {Number} 0-11 of getMonth() index 
+ * @return {string} represents month of a date
+ */
+function getMonthStr(monIndex) {
+  if (monIndex < 0 || monIndex > 11) {
+    return '';
+  }
+  if (isNaN(monIndex)) {
+    return '';
+  }
+  switch (monIndex) {
+    case 0: return 'January';
+    case 1: return 'February';
+    case 2: return 'March';
+    case 3: return 'April';
+    case 4: return 'May';
+    case 5: return 'June';
+    case 6: return 'July';
+    case 7: return 'August';
+    case 8: return 'September';
+    case 9: return 'October';
+    case 10: return 'November';
+    case 11: return 'December';
+    default: return '';
+  }
+}
+
 /** 
  * Converts an ISO date to date object for easy string conversation
  * @return {Object} date object represented 
@@ -120,9 +149,9 @@ function iso2obj(isoDate) {
 
   // @todo implement
   var dateObj = {
-    day: fd,
-    date: 23,
-    month: d.get,
+    day: getDayStr(d.getDay()),
+    date: d.getDate(),
+    month: getMonthStr(d.getMonth()),
     year: d.getFullYear()
   };
 
