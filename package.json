@@ -1,12 +1,11 @@
 {
   "name": "sps-calendar",
-  "version": "0.0.3",
-  "description": "A simple calendar reading skill.",
+  "version": "0.0.6",
   "description": "Seattle Publich Schools (SPS) calendar reading skill",
   "main": "index.js",
   "scripts": {
     "pretest": "./node_modules/jshint/bin/jshint *.js; ./node_modules/jshint/bin/jshint ./test/*.js",
-    "test": "./node_modules/mocha/bin/mocha"
+    "test": "./node_modules/mocha/bin/mocha ./test/**/*.js"
   },
   "keywords": [
     "alexa",
@@ -20,7 +19,7 @@
     "url": "https://github.com/cjbarker/sps-calendar-alexa-skill"
   },
   "dependencies": {
-    "alexa-sdk": "^1.0.0"
+    "alexa-sdk": "^1.0.6"
   },
   "devDependencies": {
     "mocha": "3.2.0",
