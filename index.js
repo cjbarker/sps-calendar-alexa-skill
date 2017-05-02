@@ -40,7 +40,16 @@ const shutdownMsg = "Okay see you later";
 // Output for Alexa
 var output = "";
 
-// @todo create handler functions
+var handlers = {
+};
+
+// register handlers
+exports.handler = function(event, context, callback) {
+  alexa = Alexa.handler(event, context);
+  alexa.appId = APP_ID;
+  alexa.registerHandlers(handlers); 
+  alexa.execute();
+};
 
 /**
  * Denotes if given string is empty, null, undefined, or blank
@@ -199,11 +208,3 @@ function isoObj2String(isoObj) {
   }
   return isoObj.day + " the " + isoObj.date + getOrdinal(isoObj.date) + " of " + isoObj.month + " " + isoObj.year;
 }
-
-exports.handler = function(event, context, callback) {
-  alexa = Alexa.handler(event, context);
-  alexa.appId = APP_ID;
-  //alexa.registerHandlers(handlers); TODO create handlers
-  alexa.execute();
-};
-
