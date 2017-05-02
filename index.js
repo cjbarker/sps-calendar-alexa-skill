@@ -1,4 +1,9 @@
+'use strict';
+
 /**
+ * @license
+ * Copyright 2017 CJ Barker. All Rights Reserved
+ *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -17,8 +22,7 @@
  * under the License.
  */
 
-//var Alexa = require('alexa-sdk');
-//var http = require('http');
+const Alexa = require('alexa-sdk');
 const calDates = require("./cal-dates2016-2017");
 
 // global variables for reference
@@ -36,7 +40,7 @@ const shutdownMsg = "Okay see you later";
 // Output for Alexa
 var output = "";
 
-// TODO create handler functions
+// @todo create handler functions
 
 /**
  * Denotes if given string is empty, null, undefined, or blank
