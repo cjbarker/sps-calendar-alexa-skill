@@ -10,6 +10,7 @@ getMonthStr = sps.__get__('getMonthStr');
 getToday = sps.__get__('getToday');
 iso2key = sps.__get__('iso2key');
 iso2obj = sps.__get__('iso2obj');
+isoObj2String = sps.__get__('isoObj2String');
 
 describe ("SPS ALexa SKill Unit Tests", function () {
   describe("String empty utility check", function() {
@@ -116,5 +117,16 @@ describe ("SPS ALexa SKill Unit Tests", function () {
     expect(obj.date).to.equal(2);
     expect(obj.month).to.equal('May');
     expect(obj.year).to.equal(2017);
+
+    var isoDateBad = '2017-05-A2T20:07:54.064Z';
+    var objBad = iso2obj(isoDateBad);
+    expect(objBad).to.be.a('null');
+  });
+
+  describe("Convert ISO Obj to flattened string", function() {
+    var isoDate = '2017-05-02T20:07:54.064Z';
+    var obj = iso2obj(isoDate);
+    var objStr = isoObj2String(obj);
+    expect(objStr).to.equal('Tuesday the 2nd of May 2017');
   });
 });

@@ -142,10 +142,13 @@ function getMonthStr(monIndex) {
  */
 function iso2obj(isoDate) {
   if (isEmpty(isoDate)) {
-    return undefined;
+    return null;
   }
 
   var d = new Date(isoDate);
+  if (isNaN(d)) {
+    return null;
+  }
 
   var dateObj = {
     day: getDayStr(d.getDay()),
