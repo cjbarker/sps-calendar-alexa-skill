@@ -19,19 +19,19 @@
 
 //var Alexa = require('alexa-sdk');
 //var http = require('http');
-//var calDates = require("./cal-dates");
+const calDates = require("./cal-dates2016-2017");
 
 // global variables for reference
 var alexa;  // alexa SDK 
-var APP_ID = "";    // @todo set
-var skillName = "Seattle Public Schools Calendar";
+const APP_ID = "";    // @todo set
+const skillName = "Seattle Public Schools Calendar";
 
 // Various messages based on intents/events
-var welcomeMsg = "You can ask if SPS is in session today. Search for school holidays by date";
-var helpMsg = "Here are some things you can say: Is school in session today? Is there school on the 19th of March?";
-var helpDescpMsg = "Here are some things you can say: Is there school today";
-var noDataMsg = "There is no information found for that date. Would you like to search again?";
-var shutdownMsg = "Okay see you later";
+const welcomeMsg = "You can ask if SPS is in session today. Search for school holidays by date";
+const helpMsg = "Here are some things you can say: Is school in session today? Is there school on the 19th of March?";
+const helpDescpMsg = "Here are some things you can say: Is there school today";
+const noDataMsg = "There is no information found for that date. Would you like to search again?";
+const shutdownMsg = "Okay see you later";
 
 // Output for Alexa
 var output = "";
