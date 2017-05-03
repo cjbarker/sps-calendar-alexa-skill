@@ -26,8 +26,8 @@
  * Seattle Public Schools (SPS) calendar dates
  */
 var KEY_DATES = {};     // Hashmap: Key is CCYYMMDD dates string format with value of event object
-var SCHOOL_START = '20160907';
-var SCHOOL_END   = '20170626';
+const SCHOOL_BEGIN = '20160907';
+const SCHOOL_END   = '20170626';
 
 // Load up key dates for 2016-17
 KEY_DATES['20160907'] = {isEarlyDismissal: false, hasNoSchool: false, description: "Start of school"};
@@ -68,3 +68,7 @@ KEY_DATES['20170414'] = {isEarlyDismissal: false, hasNoSchool: true, description
 KEY_DATES['20170510'] = {isEarlyDismissal: true, hasNoSchool: false, description: "2 hour early dismissal"};
 KEY_DATES['20170529'] = {isEarlyDismissal: false, hasNoSchool: true, description: "Memorial Day"};
 KEY_DATES['20170626'] = {isEarlyDismissal: true, hasNoSchool: false, description: "Last day of schol. 1 hour early dismissal"};
+
+module.exports.events = KEY_DATES;
+module.exports.schoolBegin = SCHOOL_BEGIN;
+module.exports.schoolEnd   = SCHOOL_END;
