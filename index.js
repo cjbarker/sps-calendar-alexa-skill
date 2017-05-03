@@ -23,6 +23,7 @@
  */
 
 const Alexa = require('alexa-sdk');
+const util = require("./util");
 const calDates = require("./cal-dates2016-2017");
 
 // global variables for reference
@@ -41,6 +42,9 @@ const shutdownMsg = "Okay see you later";
 var output = "";
 
 var handlers = {
+  'blahintent': function() {
+    this.emit(':tell', 'Hello World!');
+  }
 };
 
 // register handlers
@@ -50,161 +54,3 @@ exports.handler = function(event, context, callback) {
   alexa.registerHandlers(handlers); 
   alexa.execute();
 };
-
-/**
- * Denotes if given string is empty, null, undefined, or blank
- * @param {string} str
- * @returns {Boolean} denoting if empty or not
- */
-function isEmpty(str) {
-  return (!str || 0 === str.length || /^\s*$/.test(str));
-}
-
-/** 
- * Converts ISO to CCYYMMDD, which is used as calendar event key in hashmap.
- * @param {Date} isoDate
- * @return {string} CCYYMMDD is converted ISO string
- */
-function iso2key(isoDate) {
-  var key = '';
-
-  if (isEmpty(isoDate)) {
-    return key; 
-  }
-
-  var date = new Date(isoDate);
-  if (isNaN(date)){
-    return key;
-  }
-
-  key = date.toISOString().substring(0, 10).replace(/-/g, '');
-  return key;
-}
-
-/** 
- * Gets the current date and returns object of today
- * @return {Object} today that is {iso: string date, key: iso hashmapkey}
- */
-function getToday() {
-  var isoDate = new Date().toISOString();
-
-  var today = {
-    iso: isoDate,
-    key: iso2key(isoDate)
-  };
-
-  return today;
-}
-
-/**
- * Converts a date.getDay() array index to String of the day
- * @param {Number} 0-6 of getDay() index 
- * @return {string} represents day of the week
- */
-function getDayStr(dayIndex) {
-  if (dayIndex < 0 || dayIndex > 6) {
-    return '';
-  }
-  if (isNaN(dayIndex)) {
-    return '';
-  }
-  switch (dayIndex) {
-    case 0: return 'Sunday';
-    case 1: return 'Monday';
-    case 2: return 'Tuesday';
-    case 3: return 'Wednesday';
-    case 4: return 'Thursday';
-    case 5: return 'Friday';
-    case 6: return 'Saturday';
-    default: return '';
-  }
-}
-
-/**
- * Converts a date.getMonth() array index to String of the month
- * @param {Number} 0-11 of getMonth() index 
- * @return {string} represents month of a date
- */
-function getMonthStr(monIndex) {
-  if (monIndex < 0 || monIndex > 11) {
-    return '';
-  }
-  if (isNaN(monIndex)) {
-    return '';
-  }
-  switch (monIndex) {
-    case 0: return 'January';
-    case 1: return 'February';
-    case 2: return 'March';
-    case 3: return 'April';
-    case 4: return 'May';
-    case 5: return 'June';
-    case 6: return 'July';
-    case 7: return 'August';
-    case 8: return 'September';
-    case 9: return 'October';
-    case 10: return 'November';
-    case 11: return 'December';
-    default: return '';
-  }
-}
-
-/** 
- * Converts an ISO date to date object for easy string conversation
- * @return {Object} date object represented 
- */
-function iso2obj(isoDate) {
-  if (isEmpty(isoDate)) {
-    return null;
-  }
-
-  var d = new Date(isoDate);
-  if (isNaN(d)) {
-    return null;
-  }
-
-  var dateObj = {
-    day: getDayStr(d.getDay()),
-    date: d.getDate(),
-    month: getMonthStr(d.getMonth()),
-    year: d.getFullYear()
-  };
-
-  return dateObj;
-}
-
-/**
- * Determines the ordinal for a given number
- * @param {Number} number to check ordinal for
- * @return {string} ordinal ex: st, nd, rd, or th
- */
-function getOrdinal(num) {
-  if (isNaN(num)) {
-    return '';
-  }
-  
-  num = Math.abs(num);
-
-  if (num > 3 && num < 21) {
-    return 'th';
-  }
-
-  switch (num % 10) {
-    case 1: return 'st';
-    case 2: return 'nd';
-    case 3: return 'rd';
-    default: return 'th';
-  }
-}
-
-/**
- * Converts the iso date object to a string
- * @param {Object} iso date object
- * @return {string} Flatten object in string representation - ex: Tuesday the 12th of May 2017
- */
-function isoObj2String(isoObj) {
-  if (isoObj === undefined) {
-    return '';
-  }
-  return isoObj.day + " the " + isoObj.date + getOrdinal(isoObj.date) + " of " + isoObj.month + " " + isoObj.year;
-}
