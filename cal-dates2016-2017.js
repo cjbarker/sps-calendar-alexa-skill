@@ -25,7 +25,7 @@
 /**
  * Seattle Public Schools (SPS) calendar dates
  */
-var KEY_DATES = {};     // Hashmap: Key is CCYYMMDD dates string format with value of event object
+const KEY_DATES = {};     // Hashmap: Key is CCYYMMDD dates string format with value of event object
 const SCHOOL_BEGIN = '20160907';
 const SCHOOL_END   = '20170626';
 
