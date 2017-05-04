@@ -34,5 +34,8 @@ SpsCalIntent when is the next early dismissal
 SpsCalIntent when is the next early dismissal from school
 SpsCalIntent next early dismissal
 SpsCalIntent is school in session
+SpsCalIntent next school day
+SpsCalIntent next holiday
+SpsCalIntent next early dismissal
 
 AMAZON.HelpIntent Ask SPS if school is in session today
