@@ -33,6 +33,18 @@ module.exports = {
   },
 
   /**
+   * Denotes if input is Date object
+   * @param {Date} date input to check
+   * @returns {Boolean} denoting date else false
+   */
+  isDate: function(date) {
+    if (this.isEmpty(date)) {
+      return false;
+    }
+    return (date instanceof Date && isFinite(date));
+  },
+
+  /**
    * Determines the ordinal for a given number
    * @param {Number} number to check ordinal for
    * @return {string} ordinal ex: st, nd, rd, or th
@@ -127,7 +139,7 @@ module.exports = {
     else if (dayIndex < 0 || dayIndex > 6) {
       return false;
     }
-    else if (dayIndex == 0 || dayIndex == 6) {
+    else if (dayIndex === 0 || dayIndex == 6) {
       return false;
     } 
     else {

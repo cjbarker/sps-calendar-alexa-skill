@@ -37,6 +37,18 @@ describe ("Utility Unit Tests for SPS Alexa Skills", function () {
       expect(util.isEmpty(full)).to.equal(false);
   });
 
+  describe("Date is date utility check", function() {
+    var today = new Date();
+    var isoDate = '2017-05-01T20:07:54.064Z';
+    var bad = '2017-05-01AT20:07:54.064Z';
+    var bad2 = "";
+
+    expect(util.isDate(today)).to.equal(true);
+    expect(util.isDate(new Date(isoDate))).to.equal(true);
+    expect(util.isDate(new Date(bad))).to.equal(false);
+    expect(util.isDate(bad2)).to.equal(false);
+  });
+
   describe("Convert numbers to ordinals", function() {
     var st = 21;
     var nd = 2;
