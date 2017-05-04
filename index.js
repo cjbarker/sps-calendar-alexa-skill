@@ -50,7 +50,8 @@ function isSchoolInSession(date) {
     }
     // @todo check if in range of current calendar session
     else {
-      return false;
+      var d = util.iso2key(date);
+      return (d >= cal.SCHOOL_BEGIN && d <= cal.SCHOOL_END);
     }
 }
 
@@ -91,7 +92,7 @@ function nextSchoolDay() {
   }
 
   return nextDay;
-}
+} 
 
 // @todo implement
 //function nextHoliday() {
