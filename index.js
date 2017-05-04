@@ -24,7 +24,7 @@
 
 const Alexa = require('alexa-sdk');
 const util = require("./util");
-const calDates = require("./cal-dates2016-2017");
+const cal = require("./cal-dates2016-2017");
 
 // global variables for reference
 var alexa;  // alexa SDK 
@@ -41,6 +41,19 @@ const shutdownMsg = "Okay see you later";
 // Output for Alexa
 var output = "";
 
+function isSchoolInSession(date) {
+    if (util.isEmpty(date)) {
+      return false; 
+    }
+    else if (util.isDate(date)) {
+      return false;
+    }
+    // @todo check if in range of current calendar session
+    else {
+      return false;
+    }
+}
+
 /**
  * Determines when the next school day is based off current date.
  * @return {Object} ISO Date of next school day
@@ -50,14 +63,38 @@ function nextSchoolDay() {
   var nextDay = null;
 
   // don't iterate more than 100 days - could be summer
-  var i;
+  var i; var keyDate; var dayEvent;
+
   for (i=1; i <= 100; i++) {
     date.setDate(date.getDate() + i); 
-    // @toda check if date is weekday and not holiday even
+
+    if (!util.isWeekDay(date.getDay())) {
+      continue;
+    }
+
+    // weekday and see if no holiday or early dismissal
+    keyDate = util.iso2key(date);
+    dayEvent = cal.events[keyDate];
+
+    // no event
+    if (util.isEmpty(dayEvent) && isSchoolInSession(date)) {
+      nextDay = date;
+      break;
+    }
+    // event - see if early dismissal or holiday
+    else {
+      if (dayEvent.isEarlyDismissal){
+        nextDay = date;
+        break;
+      }
+    }
   }
 
   return nextDay;
 }
+
+// @todo implement
+//function nextHoliday() {
 
 var handlers = {
   'blahintent': function() {
