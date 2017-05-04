@@ -41,6 +41,24 @@ const shutdownMsg = "Okay see you later";
 // Output for Alexa
 var output = "";
 
+/**
+ * Determines when the next school day is based off current date.
+ * @return {Object} ISO Date of next school day
+ */
+function nextSchoolDay() {
+  var date = new Date();
+  var nextDay = null;
+
+  // don't iterate more than 100 days - could be summer
+  var i;
+  for (i=1; i <= 100; i++) {
+    date.setDate(date.getDate() + i); 
+    // @toda check if date is weekday and not holiday even
+  }
+
+  return nextDay;
+}
+
 var handlers = {
   'blahintent': function() {
     this.emit(':tell', 'Hello World!');

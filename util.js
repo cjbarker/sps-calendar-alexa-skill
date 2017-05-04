@@ -117,6 +117,25 @@ module.exports = {
   },
 
   /**
+   * Check if day is weekday or not
+   * @return {Boolean} true if week day else false weekend or bad input
+   */
+  isWeekday: function(dayIndex) {
+    if (isNaN(dayIndex)) {
+      return false;
+    }
+    else if (dayIndex < 0 || dayIndex > 6) {
+      return false;
+    }
+    else if (dayIndex == 0 || dayIndex == 6) {
+      return false;
+    } 
+    else {
+      return true;
+    }
+  },
+
+  /**
    * Converts a date.getMonth() array index to String of the month
    * @param {Number} 0-11 of getMonth() index 
    * @return {string} represents month of a date

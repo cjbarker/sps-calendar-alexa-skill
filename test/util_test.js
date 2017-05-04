@@ -80,6 +80,23 @@ describe ("Utility Unit Tests for SPS Alexa Skills", function () {
     expect(util.getDayStr(bad3)).to.equal('');
   });
 
+  describe("Determine if weekday", function() {
+    var sun = 0; var mon = 1; var tue = 2;
+    var wed = 3; var thur = 4; var fri = 5; var sat = 6;
+    var bad = 7; var bad2 = -123; var bad3 = "asdlkj ";
+
+    expect(util.isWeekday(mon)).to.equal(true);
+    expect(util.isWeekday(tue)).to.equal(true);
+    expect(util.isWeekday(wed)).to.equal(true);
+    expect(util.isWeekday(thur)).to.equal(true);
+    expect(util.isWeekday(fri)).to.equal(true);
+    expect(util.isWeekday(sat)).to.equal(false);
+    expect(util.isWeekday(sun)).to.equal(false);
+    expect(util.isWeekday(bad)).to.equal(false);
+    expect(util.isWeekday(bad2)).to.equal(false);
+    expect(util.isWeekday(bad3)).to.equal(false);
+  });
+
   describe("Get month canonical", function() {
     var jan= 0; var mar= 2; var nov = 10; var dec= 11;
     var bad = 12; var bad2 = -123; var bad3 = "asdlkj ";
