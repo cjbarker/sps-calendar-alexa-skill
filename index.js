@@ -57,10 +57,12 @@ function isSchoolInSession(date) {
 
 /**
  * Determines when the next school day is based off current date.
+ * @param {Date} date to begin checking from if null will grab current date
  * @return {Object} ISO Date of next school day
  */
-function nextSchoolDay() {
-  var date = new Date();
+function nextSchoolDay(startDate) {
+  startDate = util.isDate(startDate) ? startDate : null;
+  var date = (util.isEmpty(startDate)) ? new Date() : startDate;
   var nextDay = null;
 
   // don't iterate more than 100 days - could be summer
@@ -94,8 +96,44 @@ function nextSchoolDay() {
   return nextDay;
 } 
 
-// @todo implement
-//function nextHoliday() {
+/**
+ * Determines when the next school holiday is based off current date.
+ * @param {Date} date to begin checking from if null will grab current date
+ * @return {Object} ISO Date of next holiday (day off school)
+ */
+function nextHoliday(startDate) {
+  startDate = util.isDate(startDate) ? startDate : null;
+  var date = (util.isEmpty(startDate)) ? new Date() : startDate;
+  var nextDay = null;
+
+  // don't iterate more than 100 days - could be summer
+  var i; var keyDate; var dayEvent;
+
+  for (i=1; i <= 100; i++) {
+    date.setDate(date.getDate() + i); 
+
+    if (isSchoolInSession(date)) {
+      break;
+    }
+
+    keyDate = util.iso2key(date);
+    dayEvent = cal.events[keyDate];
+
+    // no event
+    if (util.isEmpty(dayEvent)) {
+      continue;
+    }
+    // event - see if holiday
+    else {
+      if (dayEvent.hasNoSchool){
+        nextDay = date;
+        break;
+      }
+    }
+  }
+
+  return nextDay;
+}
 
 var handlers = {
   'blahintent': function() {
