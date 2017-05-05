@@ -153,4 +153,14 @@ describe ("Utility Unit Tests for SPS Alexa Skills", function () {
     var objStr = util.isoObj2String(obj);
     expect(objStr).to.equal('Tuesday the 2nd of May 2017');
   });
+
+  describe("Parse date", function() {
+    var ccyymmdd = '20170507';
+    var bad = '2as0170507';
+    var date = util.parseDate(ccyymmdd);
+    var badDate = util.parseDate(bad);
+
+    expect(ccyymmdd).to.equal(util.iso2key(date));
+    expect(badDate).to.be.a('null');
+  });
 });

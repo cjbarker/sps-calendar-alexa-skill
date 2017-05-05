@@ -210,5 +210,16 @@ module.exports = {
       return '';
     }
     return isoObj.day + " the " + isoObj.date + this.getOrdinal(isoObj.date) + " of " + isoObj.month + " " + isoObj.year;
+  },
+
+  parseDate: function(ccyymmdd) {
+    if (this.isEmpty(ccyymmdd)) {
+      return null;
+    }
+    var y = ccyymmdd.substr(0,4);
+    var m = ccyymmdd.substr(4,2) - 1;
+    var d = ccyymmdd.substr(6,2);
+    var date = new Date(y, m, d);
+    return (date.getFullYear() == y && date.getMonth() == m && date.getDate() == d) ? date : null;
   }
 };
