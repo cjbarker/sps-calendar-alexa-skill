@@ -20,13 +20,25 @@
  * under the License.
  */
 
-//const rewire = require('rewire');
+const rewire = require('rewire');
 const assert = require('chai').assert;
 const expect = require('chai').expect;
-//const sps = rewire('../index.js');
+const cal = require('../cal-dates2016-2017.js');
+const util = require('../util.js');
+const sps = rewire('../index.js');
+
+isSchoolInSession = sps.__get__('isSchoolInSession');
+nextSchoolDay = sps.__get__('nextSchoolDay');
+nextHoliday = sps.__get__('nextHoliday');
 
 describe ("SPS Alexa SKill Unit Tests", function () {
-  describe("Convert ISO Obj to flattened string", function() {
-    // @todo
+  describe("Validate Date range of school start and end dates", function() {
+    var good = util.parseDate(cal.schoolBegin);
+    good.setDate(good.getDate() + 20);
+    var bad = util.parseDate(cal.schoolEnd);
+    bad.setDate(bad.getDate() + 20);
+
+    expect(isSchoolInSession(good)).to.equal(true);
+    expect(isSchoolInSession(bad)).to.equal(false);
   });
 });

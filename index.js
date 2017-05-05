@@ -45,13 +45,14 @@ function isSchoolInSession(date) {
     if (util.isEmpty(date)) {
       return false; 
     }
-    else if (util.isDate(date)) {
+    else if (!util.isDate(date)) {
       return false;
     }
-    // @todo check if in range of current calendar session
     else {
-      var d = util.iso2key(date);
-      return (d >= cal.SCHOOL_BEGIN && d <= cal.SCHOOL_END);
+      var d = Number( util.iso2key(date) ) ;
+      var begin = Number(cal.schoolBegin);
+      var end = Number(cal.schoolEnd);
+      return (d >= begin && d <= end);
     }
 }
 
