@@ -1,6 +1,6 @@
 {
   "name": "sps-calendar",
-  "version": "0.0.6",
+  "version": "0.9.1",
   "description": "Seattle Publich Schools (SPS) calendar reading skill",
   "main": "index.js",
   "scripts": {

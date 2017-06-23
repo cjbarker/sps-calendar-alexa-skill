@@ -29,14 +29,15 @@ const cal = require("./cal-dates2016-2017");
 // global variables for reference
 var alexa;  // alexa SDK 
 const APP_ID = "";    // @todo set
-const skillName = "Seattle Public Schools Calendar";
+const SKILL_NAME = "Seattle Public Schools Calendar";
 
 // Various messages based on intents/events
-const welcomeMsg = "You can ask if SPS is in session today. Search for school holidays by date";
-const helpMsg = "Here are some things you can say: Is school in session today? Is there school on the 19th of March?";
-const helpDescpMsg = "Here are some things you can say: Is there school today";
-const noDataMsg = "There is no information found for that date. Would you like to search again?";
-const shutdownMsg = "Okay see you later";
+const WELCOME_MSG = "Welcome to " + SKILL_NAME + ". You can ask if SPS is in session today. Search for school holidays by date";
+const WELCOME_REPROMPT = "For instructions on what you can say, please say help me.";
+const HELP_MSG = "Here are some things you can say: Is school in session today? Is there school on the 19th of March?";
+const HELP_REPROMPT = "You can ask things like is there school on December 1st or when is the next school holiday, or you can say exit...Now, what can I help you with?";
+const NO_DATA_MSG = "There is no information found for that date. Would you like to search again?";
+const SHUTDOWN_MSG = "Okay see you later";
 
 // Output for Alexa
 var output = "";
@@ -137,8 +138,33 @@ function nextHoliday(startDate) {
 }
 
 var handlers = {
-  'blahintent': function() {
-    this.emit(':tell', 'Hello World!');
+  'LaunchRequest': function() {
+    this.emit(':ask', WELCOME_MSG, WELCOME_REPROMPT);
+  },
+  'SpsCalIntent': function () {
+    var itemSlot = this.event.request.intent.slots.Item;
+    var itemName;
+    if (itemSlot && itemSlot.value) {
+      itemName = itemSlot.value.toLowerCase();
+    }
+
+    var dayEvent =  cal.events[itemName];
+
+    if (dayEvent) {
+      // @todo create unique intents per requests for school day, early dismissal, no school or holiday
+      this.emit(':tell', 'Found event would load here for ' + dayEvent);    
+    } else {
+      this.emit(':tell', 'Did not find event would load here for ask on this date ' + dayEvent);    
+    }
+  },
+  'AMAZON.HelpIntent': function () {
+    this.emit(':ask', HELP_MSG, HELP_REPROMPT);
+  },
+  'AMAZON.CancelIntent': function () {
+    this.emit(':tell', SHUTDOWN_MSG);
+  },
+  'AMAZON.StopIntent': function () {
+    this.emit(':tell', SHUTDOWN_MSG);
   }
 };
 
