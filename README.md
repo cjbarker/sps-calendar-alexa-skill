@@ -33,7 +33,11 @@ jshint index.js
 ```
 
 ## Deploy
-TBD
+Create a [deployment package for AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/nodejs-create-deployment-pkg.html) via the following command script to zip all project contents to upload and deploy to AWS Lambda.
+
+```bash
+npm run zip
+```
 
 # References
 * [Alexa SDK for Node.js](https://github.com/alexa/alexa-skills-kit-sdk-for-nodejs)

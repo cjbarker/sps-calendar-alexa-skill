@@ -24,11 +24,11 @@
 
 const Alexa = require('alexa-sdk');
 const util = require("./util");
-const cal = require("./cal-dates2016-2017");
+const cal = require("./cal-dates");
 
 // global variables for reference
 var alexa;  // alexa SDK 
-const APP_ID = "";    // @todo set
+const APP_ID = "";  i// @todo Add from AWS
 const SKILL_NAME = "Seattle Public Schools Calendar";
 
 // Various messages based on intents/events
@@ -38,9 +38,6 @@ const HELP_MSG = "Here are some things you can say: Is school in session today? 
 const HELP_REPROMPT = "You can ask things like is there school on December 1st or when is the next school holiday, or you can say exit...Now, what can I help you with?";
 const NO_DATA_MSG = "There is no information found for that date. Would you like to search again?";
 const SHUTDOWN_MSG = "Okay see you later";
-
-// Output for Alexa
-var output = "";
 
 function isSchoolInSession(date) {
     if (util.isEmpty(date)) {

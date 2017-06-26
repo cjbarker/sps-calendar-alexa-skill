@@ -23,7 +23,7 @@
 const rewire = require('rewire');
 const assert = require('chai').assert;
 const expect = require('chai').expect;
-const cal = require('../cal-dates2016-2017.js');
+const cal = require('../cal-dates.js');
 const util = require('../util.js');
 const sps = rewire('../index.js');
 

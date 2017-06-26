@@ -21,7 +21,7 @@
  */
 
 const expect = require('chai').expect;
-const cal = require('../cal-dates2016-2017.js');
+const cal = require('../cal-dates.js');
 
 describe ("SPS Alexa SKill Unit Tests - Calendar Events", function () {
   describe("Validate basic dates", function() {
