@@ -1,12 +1,12 @@
 SpsCalIntent {Date}
 SpsCalIntent for {Date}
 SpsCalIntent status
-SpsCalIntent the school status for {$Date}
+SpsCalIntent the school status for {Date}
 SpsCalIntent is school in session 
-SpsCalIntent is there school on {$Date}
-SpsCalIntent is school in session on {$Date}
-SpsCalIntent is school in session for {$Date}
-SpsCalIntent give me the school status for ${Date}
+SpsCalIntent is there school on {Date}
+SpsCalIntent is school in session on {Date}
+SpsCalIntent is school in session for {Date}
+SpsCalIntent give me the school status for {Date}
 SpsCalIntent give me the school status 
 SpsCalIntent is there school this {Date}
 SpsCalIntent is there school {Date}
