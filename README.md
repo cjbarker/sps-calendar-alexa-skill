@@ -36,7 +36,11 @@ jshint index.js
 Create a [deployment package for AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/nodejs-create-deployment-pkg.html) via the following command script to zip all project contents to upload and deploy to AWS Lambda.
 
 ```bash
+# Build AWS Lambda Package
 npm run zip
+
+# Provision AWS Lambda and deploy package via Terraform
+npm run tf
 ```
 
 # References
