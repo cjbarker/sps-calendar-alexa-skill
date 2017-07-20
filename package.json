@@ -1,12 +1,13 @@
 {
   "name": "sps-calendar",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "Seattle Publich Schools (SPS) calendar reading skill",
   "main": "index.js",
   "scripts": {
     "pretest": "./node_modules/jshint/bin/jshint *.js; ./node_modules/jshint/bin/jshint ./test/*.js",
     "test": "./node_modules/mocha/bin/mocha ./test/**/*.js",
-    "zip": "zip -r $npm_package_name-$npm_package_version.zip *.js speechAssets/ node_modules/"
+    "zip": "zip -r $npm_package_name-$npm_package_version.zip *.js speechAssets/ node_modules/",
+    "tf": "terraform "
   },
   "keywords": [
     "alexa",

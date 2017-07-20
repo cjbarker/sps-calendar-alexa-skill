@@ -28,7 +28,7 @@ const cal = require("./cal-dates");
 
 // global variables for reference
 var alexa;  // alexa SDK 
-const APP_ID = "";  i// @todo Add from AWS
+const APP_ID = "";  // @todo Add from AWS
 const SKILL_NAME = "Seattle Public Schools Calendar";
 
 // Various messages based on intents/events
